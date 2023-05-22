@@ -1,4 +1,4 @@
-import { mouse, straightTo, centerOf } from "@nut-tree/nut-js";
+import { mouse } from "@nut-tree/nut-js";
 
 export class Navigator {
 
@@ -31,5 +31,4 @@ export class Navigator {
 
     return `${mousePoint.x} px, ${mousePoint.y} px`.replace(/ /g, "_");
   }
-
 }
