@@ -1,0 +1,25 @@
+{
+    "name": "ws_task",
+    "version": "1.0.0",
+    "description": "remote control",
+    "main": "index.ts",
+    "type": "commonjs",
+    "scripts": {
+        "start": "tsc & node ./dist/index.js",
+        "start:dev": "nodemon"
+    },
+    "keywords": [],
+    "license": "ISC",
+    "devDependencies": {
+        "@types/node": "^20.2.1",
+        "@types/ws": "^8.5.4",
+        "nodemon": "^2.0.16",
+        "ts-node": "^10.9.1",
+        "typescript": "^5.0.4"
+    },
+    "dependencies": {
+        "@nut-tree/nut-js": "^2.3.0",
+        "jimp": "^0.22.8",
+        "ws": "^8.8.0"
+    }
+}
