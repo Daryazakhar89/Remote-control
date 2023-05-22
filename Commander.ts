@@ -1,5 +1,6 @@
 import { Drawer } from "./Drawer";
 import { Navigator } from "./Navigator";
+import { ScreenGrabber } from "./ScreenGrabber";
 
 enum Commands {
   mouseUp,
@@ -20,8 +21,7 @@ export class Commander {
     const methodName = Commander.buildMethodNameFromCommand(command);
 
     if (!(methodName in Commander)) {
-      // throw new Error("The command is wrong");
-      console.log("The command is wrong");
+      throw new Error("The command is wrong");
     } else {
       commandResult = await (Commander as any)[methodName](...args);
     }
@@ -76,5 +76,9 @@ export class Commander {
 
   static async drawSquare(...args: number[]) {
     await Drawer.drawSquare(args[0]);
+  }
+
+  static async prntScrn() {
+    return await ScreenGrabber.grabScreenshotArea();
   }
 }
