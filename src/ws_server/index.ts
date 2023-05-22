@@ -33,11 +33,11 @@ export class WSS {
         async transform(data, _, callback) {
           console.log(data);
 
-          const [command, step] = data.split(' ');
+          const [command, ...args]: [string, string] = data.split(' ');
+          const numericArgs = args.map((arg: string) => parseInt(arg, 10));
+          const result = await Commander.runCommand(command, numericArgs);
 
-          const result = await Commander.runCommand(command, +step);
-
-          result ? callback(null, `${command}_${result}`) : callback(null, 'some thing');
+          result ? callback(null, `${command}_${result}`) : callback(null, data.replace(/ /g, '_'));
         },
         encoding: 'utf-8',
         decodeStrings: false,
