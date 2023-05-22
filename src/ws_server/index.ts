@@ -35,9 +35,10 @@ export class WSS {
 
           const [command, ...args]: [string, string] = data.split(' ');
           const numericArgs = args.map((arg: string) => parseInt(arg, 10));
+
           const result = await Commander.runCommand(command, numericArgs);
 
-          result ? callback(null, `${command}_${result}`) : callback(null, data.replace(/ /g, '_'));
+          result ? callback(null, `${command} ${result}`) : callback(null, data.replace(/ /g, String.fromCharCode(160)));
         },
         encoding: 'utf-8',
         decodeStrings: false,
