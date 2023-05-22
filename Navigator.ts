@@ -1,4 +1,4 @@
-import { mouse } from "@nut-tree/nut-js";
+import { mouse } from '@nut-tree/nut-js';
 
 export class Navigator {
 
@@ -29,6 +29,6 @@ export class Navigator {
   static async getMousePosition() {
     const mousePoint = await mouse.getPosition();
 
-    return `${mousePoint.x} px, ${mousePoint.y} px`.replace(/ /g, "_");
+    return `${mousePoint.x} px, ${mousePoint.y} px`.replace(/ /g, String.fromCharCode(160));
   }
 }

@@ -1,5 +1,5 @@
-import { mouse, Region, screen } from "@nut-tree/nut-js";
-import Jimp from "jimp";
+import { mouse, Region, screen } from '@nut-tree/nut-js';
+import Jimp from 'jimp';
 
 export class ScreenGrabber {
   static screenSide = 200;

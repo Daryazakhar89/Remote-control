@@ -1,6 +1,6 @@
-import { Drawer } from "./Drawer";
-import { Navigator } from "./Navigator";
-import { ScreenGrabber } from "./ScreenGrabber";
+import { Drawer } from './Drawer';
+import { Navigator } from './Navigator';
+import { ScreenGrabber } from './ScreenGrabber';
 
 enum Commands {
   mouseUp,
@@ -12,16 +12,16 @@ enum Commands {
 
 export class Commander {
   public static async runCommand(command: string, args: number[]) {
-    let commandResult = "";
+    let commandResult = '';
 
-    if (!command || typeof command !== "string") {
-      throw new Error("Command must be a non-empty string");
+    if (!command || typeof command !== 'string') {
+      throw new Error('Command must be a non-empty string');
     }
 
     const methodName = Commander.buildMethodNameFromCommand(command);
 
     if (!(methodName in Commander)) {
-      throw new Error("The command is wrong");
+      throw new Error('The command is wrong');
     } else {
       commandResult = await (Commander as any)[methodName](...args);
     }
@@ -30,9 +30,9 @@ export class Commander {
   }
 
   private static buildMethodNameFromCommand(command: string): keyof typeof Commands {
-    const words = command.split("_");
+    const words = command.split('_');
     const formattedWords = words.map((word, index) => {
-      let result = "";
+      let result = '';
 
       if (index === 0) {
         result = word;
@@ -43,7 +43,7 @@ export class Commander {
       return result;
     });
 
-    return formattedWords.join("") as keyof typeof Commands;
+    return formattedWords.join('') as keyof typeof Commands;
   }
 
   static async mouseUp(...args: number[]) {
